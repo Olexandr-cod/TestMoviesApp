@@ -50,6 +50,8 @@ const SignInScreen = () => {
                         errors={error?.error?.code}
                     />
                     <ButtonDefault
+                        disabled={loading}
+                        loading={loading}
                         buttoStyles={cs.buttonSignInStyle}
                         onPress={handleSubmit(onSignIn)}>
                         <Text style={[positionHelpers.textCenter, { color: colors.white }]}>
@@ -57,8 +59,6 @@ const SignInScreen = () => {
                         </Text>
                     </ButtonDefault>
                     <ButtonDefault
-                        disabled={loading}
-                        loading={loading}
                         activeOpacity={0.6}
                         buttoStyles={cs.buttonSignUpStyle}
                         onPress={() => navigation.navigate(DASHBOARD_ROUTES.SIGN_UP_SCREEN)}>

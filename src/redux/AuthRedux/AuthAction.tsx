@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { SigninBodyType, SignupBodyType } from './types';
-import { RootState } from '../../store/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setIsAuth } from './authSlice';
 import { getMoviesAction } from '../MoviesRedux/MoviesAction';
@@ -33,7 +32,6 @@ export const userRegistrAction = createAsyncThunk<any, SignupBodyType>('auth/reg
     try {
         const response = await axios.post('/users', dataRegistr);
 
-        console.log('response-->', JSON.stringify(response?.data, null, 2))
         if (response && response?.data && response?.data?.status === 1) {
             const token = response?.data?.token;
             AsyncStorage.setItem('@token', token);
@@ -43,8 +41,6 @@ export const userRegistrAction = createAsyncThunk<any, SignupBodyType>('auth/reg
         }
         return response.data;
     } catch (error) {
-
-        console.log('error-->', JSON.stringify(error, null, 2))
         if (error instanceof AxiosError) {
             if (error) {
                 return thunkAPI.rejectWithValue(error);

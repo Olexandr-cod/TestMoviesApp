@@ -23,7 +23,8 @@
       "usesCleartextTraffic": true,
       "permissions": [
         "INTERNET"
-      ]
+      ],
+      "package": "com.alex888alexandrov8.TestMoviesApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -43,6 +44,11 @@
           }
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c3d09327-0d85-4f29-b8e8-f638ad5f58d9"
+      }
+    }
   }
 }

@@ -81,7 +81,6 @@ export const deleteMovieAction = createAsyncThunk<string | number, { token: stri
         };
         const response = await axios.delete(`/movies/${id}`, config);
 
-        console.log('res---r>,', JSON.stringify(response?.data, null, 2))
         if (response && response?.data && response?.data?.status === 1) {
             thunkAPI.dispatch(getMoviesAction(token))
             navigation.goBack()
